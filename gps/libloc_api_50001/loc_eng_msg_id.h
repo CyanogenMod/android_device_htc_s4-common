@@ -85,6 +85,8 @@ enum loc_eng_msg_ids_t {
     LOC_ENG_MSG_REQUEST_POSITION,
     LOC_ENG_MSG_EXT_POWER_CONFIG,
 
+    LOC_ENG_MSG_PRIVACY,
+
     // The following messages are added for ulp
     LOC_ENG_MSG_REQUEST_PHONE_CONTEXT,
     LOC_ENG_MSG_REQUEST_NETWORK_POSIITON,

@@ -747,6 +747,16 @@ struct loc_eng_msg_request_phone_context : public loc_eng_msg {
     }
 };
 
+struct loc_eng_msg_privacy : public loc_eng_msg {
+    const int privacy_setting;
+    inline loc_eng_msg_privacy(void* instance, int privacy_setting) :
+        loc_eng_msg(instance, LOC_ENG_MSG_PRIVACY),
+        privacy_setting(privacy_setting)
+    {
+        LOC_LOGV("privacy_setting: %d", privacy_setting);
+    }
+};
+
 struct ulp_msg_update_criteria : public loc_eng_msg {
     const UlpLocationCriteria locationCriteria;
     inline ulp_msg_update_criteria (void* instance, UlpLocationCriteria criteria) :

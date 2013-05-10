@@ -24,13 +24,11 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
+# Inherit from common msm8960
+-include device/htc/msm8960-common/BoardConfigCommon.mk
+
 # Include path
-TARGET_SPECIFIC_HEADER_PATH := device/htc/msm8960-common/include
-
-BOARD_VENDOR := htc
-
-# Bootloader
-TARGET_NO_BOOTLOADER := true
+TARGET_SPECIFIC_HEADER_PATH := device/htc/s4-common/include
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80400000
@@ -39,49 +37,23 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 
-# Platform
-TARGET_BOARD_PLATFORM := msm8960
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-
-# Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-
-# Flags
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-
-# QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
-
 # Audio
-BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
-TARGET_QCOM_AUDIO_VARIANT := caf
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
+USE_CAMERA_STUB := false
 TARGET_PROVIDES_CAMERA_HAL := true
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
 # Graphics
-USE_OPENGL_RENDERER := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_ION := true
-TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_HAVE_OLD_ION_API := true
-BOARD_EGL_CFG := device/htc/msm8960-common/configs/egl.cfg
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -92,9 +64,6 @@ TARGET_PROVIDES_POWERHAL := true
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
-
-# RIL
-BOARD_RIL_CLASS := "../../../device/htc/msm8960-common/libril/"
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -108,7 +77,3 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_MODULE_NAME := prima_wlan
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/prima_wlan.ko"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-
-# Webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true

@@ -71,12 +71,7 @@ etc/firmware/leia_pm4_470.fw
 etc/firmware/vidc_1080p.fw
 
 # Media libraries
-lib/libmmosal.so
 lib/libmm-color-convertor.so
-lib/libmmparser.so
-lib/libmmparser_divxdrmlib.so
-lib/libwvm.so
-lib/libWVStreamControlAPI_L3.so
 
 # Modem firmware
 etc/firmware/modem.b00
@@ -124,12 +119,12 @@ lib/libdsutils.so
 lib/libidl.so
 lib/libqdi.so
 lib/libqdp.so
-lib/libqmi.so
 lib/libqmi_cci.so
 lib/libqmi_common_so.so
 lib/libqmi_csi.so
 lib/libqmi_encdec.so
 lib/libqmiservices.so
+lib/libqmi.so
 
 # Radio
 lib/libnetmgr.so

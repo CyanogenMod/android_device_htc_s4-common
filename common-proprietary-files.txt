@@ -17,18 +17,31 @@ lib/libacdbloader.so
 lib/libaudcal.so
 
 # Camera
+lib/hw/camera.msm8960.so
+lib/libBeautyChat.so
+lib/libcameraasd.so
 lib/libcameraface.so
 lib/libcamerapp.so
 lib/libcam_oem_plugin.so
-lib/libDxOAF.so
 lib/libgemini.so
+lib/libHTC_DIS.so
+lib/libhtccamera.so
+lib/libimage-jpeg-dec-omx-comp.so
+lib/libimage-jpeg-enc-omx-comp.so
+lib/libimage-omx-common.so
+lib/libmmcamera_faceproc.so
 lib/libmmcamera_frameproc.so
+lib/libmmcamera_hdr_lib.so
+lib/libmmcamera_image_stab.so
+lib/libmmcamera_interface2.so
 lib/libmmcamera_rawchipproc.so
-lib/libmmcamera_statsproc30.so
+lib/libmmcamera_statsproc31.so
+lib/libmmcamera_wavelet_lib.so
 lib/libmmipl.so
 lib/libmmjpeg.so
+lib/libmmmpod.so
+lib/libmmstillomx.so
 lib/liboemcamera.so
-lib/libOlaEngine.so
 lib/libposteffect.so
 
 # GPS

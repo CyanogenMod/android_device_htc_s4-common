@@ -42,6 +42,16 @@ on boot
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
 
+    # radio
+    mkdir /data/radio 0770 radio radio
+    chmod 2770 /data/radio
+    mkdir /dev/socket/qmux_radio 0770 radio radio
+    chmod 2770 /dev/socket/qmux_radio
+    mkdir /dev/socket/qmux_audio 0770 audio audio
+    chmod 2770 /dev/socket/qmux_audio
+    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
+    chmod 2770 /dev/socket/qmux_bluetooth
+
     # bluetooth
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -207,7 +217,7 @@ service qcom-sh /system/bin/sh /init.qcom.sh
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio
+    group radio qcom_diag
 
 service rmt_storage /system/bin/rmt_storage modem_st1 modem_st2 recovery radio_config
     class core

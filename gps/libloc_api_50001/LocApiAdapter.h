@@ -115,6 +115,8 @@ public:
     //LocApiAdapter(int q, reportCb_t[LOC_API_ADAPTER_EVENT_MAX] callbackTable);
     virtual ~LocApiAdapter();
 
+    static LocApiAdapter* getLocApiAdapter(LocEng &locEng);
+
     static int hexcode(char *hexstring, int string_size,
                        const char *data, int data_size);
     static int decodeAddress(char *addr_string, int string_size,
@@ -219,5 +221,6 @@ public:
 
 LocApiAdapter* getLocApiAdapter(LocEng &locEng);
 
+typedef LocApiAdapter* (getLocApiAdapter_t)(LocEng&);
 
 #endif //LOC_API_RPC_ADAPTER_H

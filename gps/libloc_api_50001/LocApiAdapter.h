@@ -107,7 +107,6 @@ class LocApiAdapter {
 protected:
     const LocEng locEngHandle;
     LocPosMode fixCriteria;
-    bool navigating;
 
     LocApiAdapter(LocEng &locEng);
 
@@ -190,24 +189,14 @@ public:
         setSUPLVersion(uint32_t version)
     {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
     inline virtual enum loc_api_adapter_err
-        setLPPConfig(uint32_t profile)
-    {LOC_LOGW("%s: default implementation invoked", __func__);
-     return LOC_API_ADAPTER_ERR_SUCCESS; }
-    inline virtual enum loc_api_adapter_err
         setSensorControlConfig(int sensorUsage)
     {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
     inline virtual enum loc_api_adapter_err
-        setSensorProperties(bool gyroBiasVarianceRandomWalk_valid, float gyroBiasVarianceRandomWalk,
-                            bool accelBiasVarianceRandomWalk_valid, float accelBiasVarianceRandomWalk,
-                            bool angleBiasVarianceRandomWalk_valid, float angleBiasVarianceRandomWalk,
-                            bool rateBiasVarianceRandomWalk_valid, float rateBiasVarianceRandomWalk,
-                            bool velocityBiasVarianceRandomWalk_valid, float velocityBiasVarianceRandomWalk)
+        setSensorProperties(float gyroBiasVarianceRandomWalk)
     {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
     inline virtual enum loc_api_adapter_err
         setSensorPerfControlConfig(int controlMode, int accelSamplesPerBatch, int accelBatchesPerSec,
-                            int gyroSamplesPerBatch, int gyroBatchesPerSec,
-                            int accelSamplesPerBatchHigh, int accelBatchesPerSecHigh,
-                            int gyroSamplesPerBatchHigh, int gyroBatchesPerSecHigh, int algorithmConfig)
+                            int gyroSamplesPerBatch, int gyroBatchesPerSec)
     {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
     inline virtual enum loc_api_adapter_err
         setExtPowerConfig(int isBatteryCharging)
@@ -215,8 +204,10 @@ public:
 
     inline const LocPosMode& getPositionMode() const {return fixCriteria;}
 
-    inline bool isInSession() { return navigating; }
-    inline virtual void setInSession(bool inSession) { navigating = inSession; }
+    inline virtual enum loc_api_adapter_err
+        injectCertFile(char *arg0, int arg1, char const *arg2)
+    {LOC_LOGW("%s: HTC function called", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
+
 };
 
 LocApiAdapter* getLocApiAdapter(LocEng &locEng);

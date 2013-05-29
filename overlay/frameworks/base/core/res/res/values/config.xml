@@ -84,4 +84,7 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareKeys">19</integer>
+
+    <!-- Enable overflow button by default. -->
+    <bool name="config_defaultShowOverflow">true</bool>
 </resources>

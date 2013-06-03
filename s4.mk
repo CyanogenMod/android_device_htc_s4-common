@@ -72,4 +72,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.baseband.arch=msm \
     ro.product.wireless=WCN3660 \
     ro.qualcomm.bt.hci_transport=smd \
+    ro.telephony.ril_class=HTCQualcommRIL \
     ro.telephony.ril.v3=skipradiooff

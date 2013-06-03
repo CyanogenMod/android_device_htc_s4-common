@@ -1916,7 +1916,7 @@ status_t QCameraHardwareInterface::setFocusMode(const CameraParameters& params)
     ALOGE("%s",__func__);
     if (str != NULL) {
 
-      ALOGE("Focus mdoe %s",str);
+      ALOGE("Focus mode %s",str);
         int32_t value = attr_lookup(focus_modes,
                                     sizeof(focus_modes) / sizeof(str_map), str);
         if (value != NOT_FOUND) {

@@ -2,6 +2,7 @@
 etc/agps_rm
 
 # Executable files
+bin/akmd
 bin/charging
 bin/mm-qcamera-daemon
 bin/mpdecision
@@ -73,36 +74,6 @@ etc/firmware/vidc_1080p.fw
 # Media libraries
 lib/libmm-color-convertor.so
 
-# Modem firmware
-etc/firmware/modem.b00
-etc/firmware/modem.b01
-etc/firmware/modem.b02
-etc/firmware/modem.b03
-etc/firmware/modem.b04
-etc/firmware/modem.b06
-etc/firmware/modem.b07
-etc/firmware/modem.mdt
-etc/firmware/modem_fw.b00
-etc/firmware/modem_fw.b01
-etc/firmware/modem_fw.b02
-etc/firmware/modem_fw.b03
-etc/firmware/modem_fw.b04
-etc/firmware/modem_fw.b05
-etc/firmware/modem_fw.b06
-etc/firmware/modem_fw.b07
-etc/firmware/modem_fw.b08
-etc/firmware/modem_fw.b09
-etc/firmware/modem_fw.b10
-etc/firmware/modem_fw.b13
-etc/firmware/modem_fw.b14
-etc/firmware/modem_fw.b21
-etc/firmware/modem_fw.b22
-etc/firmware/modem_fw.b23
-etc/firmware/modem_fw.b25
-etc/firmware/modem_fw.b26
-etc/firmware/modem_fw.b29
-etc/firmware/modem_fw.mdt
-
 # Q6 firmware
 etc/firmware/q6.b00
 etc/firmware/q6.b01
@@ -129,8 +100,6 @@ lib/libqmi.so
 # Radio
 lib/libnetmgr.so
 lib/libqc-opt.so
-lib/libril-qc-qmi-1.so
-lib/libril-qcril-hook-oem.so
 
 # WLAN
 etc/firmware/wlan/prima/WCNSS_cfg.dat

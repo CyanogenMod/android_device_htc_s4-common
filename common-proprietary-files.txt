@@ -8,7 +8,6 @@ bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
 bin/netsharing
-bin/qmuxd
 bin/rmt_storage
 bin/thermald
 bin/zchgd
@@ -82,20 +81,6 @@ etc/firmware/q6.b04
 etc/firmware/q6.b05
 etc/firmware/q6.b06
 etc/firmware/q6.mdt
-
-# Qualcomm/HTC common libs
-lib/libdiag.so
-lib/libdsi_netctrl.so
-lib/libdsutils.so
-lib/libidl.so
-lib/libqdi.so
-lib/libqdp.so
-lib/libqmi_cci.so
-lib/libqmi_common_so.so
-lib/libqmi_csi.so
-lib/libqmi_encdec.so
-lib/libqmiservices.so
-lib/libqmi.so
 
 # Radio
 lib/libnetmgr.so

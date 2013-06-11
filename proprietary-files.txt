@@ -1,5 +1,8 @@
 # Device-specific proprietary files sharing a common name
 
+# Executable files
+bin/qmuxd
+
 # Modem firmware
 etc/firmware/modem.b00
 etc/firmware/modem.b01
@@ -29,6 +32,20 @@ etc/firmware/modem_fw.b25
 etc/firmware/modem_fw.b26
 etc/firmware/modem_fw.b29
 etc/firmware/modem_fw.mdt
+
+# QMI libraries
+lib/libdiag.so
+lib/libdsi_netctrl.so
+lib/libdsutils.so
+lib/libidl.so
+lib/libqdi.so
+lib/libqdp.so
+lib/libqmi_cci.so
+lib/libqmi_common_so.so
+lib/libqmi_csi.so
+lib/libqmi_encdec.so
+lib/libqmiservices.so
+lib/libqmi.so
 
 # Radio
 lib/libril-qc-qmi-1.so

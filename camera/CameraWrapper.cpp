@@ -92,25 +92,12 @@ static int check_vendor_module()
 
 static char * camera_fixup_getparams(int id, const char * settings)
 {
-    const char* recordingHint = "false";
-
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
-
-    if (params.get(android::CameraParameters::KEY_RECORDING_HINT))
-        recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
 
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
-
-    /* Photo Mode */
-    if (strcmp(recordingHint, "false") == 0) {
-        /* Back Camera */
-        if (id == 0) {
-            params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, "off,auto,action,portrait,landscape,night,night-portrait,theatre,beach,snow,sunset,steadyphoto,fireworks,sports,party,candlelight,backlight,flowers,AR,text,hdr");
-        }
-    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -121,31 +108,12 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
 char * camera_fixup_setparams(int id, const char * settings)
 {
-    const char* recordingHint = "false";
-
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
-
-    // fix params here
-    if (params.get(android::CameraParameters::KEY_RECORDING_HINT))
-        recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
 
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
-
-    /* Photo Mode */
-    if (strcmp(recordingHint, "false") == 0) {
-        /* Back Camera */
-        if (id == 0) {
-            params.set(android::CameraParameters::KEY_CONTIBURST_TYPE, "unlimited");
-            params.set(android::CameraParameters::KEY_OIS_SUPPORT, "false");
-            params.set(android::CameraParameters::KEY_OIS_MODE, "off");
-
-            ALOGI("Capture-Mode: Normal.");
-            params.set(android::CameraParameters::KEY_CAPTURE_MODE, "normal");
-        }
-    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -380,13 +348,13 @@ char* camera_get_parameters(struct camera_device * device)
     if (!device)
         return NULL;
 
-    char* params = VENDOR_CALL(device, get_parameters);
+    char *params = VENDOR_CALL(device, get_parameters);
 
 #ifdef LOG_PARAMETERS
     __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
 #endif
 
-    char * tmp = camera_fixup_getparams(CAMERA_ID(device), params);
+    char *tmp = camera_fixup_getparams(CAMERA_ID(device), params);
     VENDOR_CALL(device, put_parameters, params);
     params = tmp;
 

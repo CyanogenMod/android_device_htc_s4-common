@@ -92,12 +92,38 @@ static int check_vendor_module()
 
 static char * camera_fixup_getparams(int id, const char * settings)
 {
+    const char *recordingHint = "false";
+    const char *captureMode = "normal";
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+
+    if (params.get(android::CameraParameters::KEY_RECORDING_HINT))
+        recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
+    if (params.get(android::CameraParameters::KEY_CAPTURE_MODE))
+        captureMode = params.get(android::CameraParameters::KEY_CAPTURE_MODE);
+
+    /* Photo mode */
+    if (!strcmp(recordingHint, "false")) {
+        /* Back camera */
+        if (id == 0) {
+            /* Hardware HDR */
+            params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, "off,auto,action,portrait,landscape,night,night-portrait,theatre,beach,snow,sunset,steadyphoto,fireworks,sports,party,candlelight,backlight,flowers,AR,text,hdr");
+            if (strcmp(captureMode, "hdr") == 0) {
+                ALOGI("Scene-Mode: HDR.");
+                params.set(android::CameraParameters::KEY_SCENE_MODE, "hdr");
+            }
+        }
+    } else {
+        /* Video mode */
+        /* TODO: unset KEY_CAPTURE_MODE, it breaks 720/1080p */
+        params.remove(android::CameraParameters::KEY_CAPTURE_MODE);
+        params.remove("num-jpegs-per-shutter");
+    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -108,12 +134,41 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
 char * camera_fixup_setparams(int id, const char * settings)
 {
+    const char *recordingHint = "false";
+    const char *sceneMode = "auto";
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+
+    if (params.get(android::CameraParameters::KEY_RECORDING_HINT))
+        recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
+    if (params.get(android::CameraParameters::KEY_SCENE_MODE))
+        sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
+
+    /* Photo mode */
+    if (!strcmp(recordingHint, "false")) {
+        /* Back camera */
+        if (id == 0) {
+            /* Hardware HDR */
+            if (strcmp(sceneMode, "hdr") == 0) {
+                ALOGI("Capture-Mode: HDR.");
+                params.set(android::CameraParameters::KEY_SCENE_MODE, "off");
+                params.set(android::CameraParameters::KEY_CAPTURE_MODE, "hdr");
+            } else {
+                ALOGI("Capture-Mode: Normal.");
+                params.set(android::CameraParameters::KEY_CAPTURE_MODE, "normal");
+            }
+        }
+    } else {
+        /* Video mode */
+        /* TODO: unset KEY_CAPTURE_MODE, it breaks 720/1080p */
+        params.remove(android::CameraParameters::KEY_CAPTURE_MODE);
+        params.remove("num-jpegs-per-shutter");
+    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());

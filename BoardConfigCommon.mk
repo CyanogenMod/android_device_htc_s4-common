@@ -27,6 +27,9 @@
 # Inherit from common msm8960
 -include device/htc/msm8960-common/BoardConfigCommon.mk
 
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/s4-common
+
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := device/htc/s4-common/include
 

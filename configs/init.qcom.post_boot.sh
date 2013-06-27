@@ -405,6 +405,13 @@ case "$target" in
      ;;
 esac
 
+# Wake-on-Volume
+case "$target" in
+    "msm8960")
+        echo 1 > /sys/keyboard/vol_wakeup
+    ;;
+esac
+
 #fastrpc permission setting
 insmod /system/lib/modules/adsprpc.ko
 chown system.system /dev/adsprpc-smd

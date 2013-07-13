@@ -73,15 +73,6 @@ etc/firmware/vidc_1080p.fw
 # Media libraries
 lib/libmm-color-convertor.so
 
-# Q6 firmware
-etc/firmware/q6.b00
-etc/firmware/q6.b01
-etc/firmware/q6.b03
-etc/firmware/q6.b04
-etc/firmware/q6.b05
-etc/firmware/q6.b06
-etc/firmware/q6.mdt
-
 # Radio
 lib/libnetmgr.so
 lib/libqc-opt.so

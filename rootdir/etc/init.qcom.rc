@@ -12,6 +12,9 @@ on fs
     mkdir /tombstones 0771 system system
     mkdir /tombstones/lpass 0771 system system
 
+    # mount all mmc partitions
+    mount_all /fstab.qcom
+
 on post-fs-data
     # double check perms and set owner
     chown root root /devlog

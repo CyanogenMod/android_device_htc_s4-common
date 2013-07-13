@@ -9,8 +9,12 @@ on init
     mkdir /devlog 0700 root root
 
 on fs
-    mkdir /tombstones 0771 system system
+    mkdir /data/tombstones 0771 system system
+    symlink /data/tombstones /tombstones
+    mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/wcnss 0771 system system
+    mkdir /tombstones/dsps 0771 system system
 
     # mount all mmc partitions
     mount_all /fstab.qcom

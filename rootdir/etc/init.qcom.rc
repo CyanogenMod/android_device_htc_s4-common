@@ -168,14 +168,6 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet_sdio6/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
 
-    # Define TCP buffer sizes for various networks
-    setprop net.tcp.buffersize.hspa 4096,174760,3145728,4096,16384,110208
-    setprop net.tcp.buffersize.hsupa 4096,174760,1572864,4096,16384,110208
-    setprop net.tcp.buffersize.hsdpa 4096,174760,1572864,4096,16384,110208
-    setprop net.tcp.buffersize.umts 4096,174760,1572864,4096,16384,110208
-    setprop net.tcp.buffersize.edge 4096,174760,1572864,4096,16384,35040
-    setprop net.tcp.buffersize.gprs 4096,174760,1572864,4096,8760,11680
-
     # load kineto_gan.ko
     insmod /system/lib/modules/kineto_gan.ko
 
@@ -202,10 +194,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     group qcom_oncrpc bluetooth net_bt_admin
     disabled
     oneshot
-
-service hdmid /system/bin/hdmid
-    socket hdmid stream 0660 root system graphics
-    disabled
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
@@ -288,9 +276,6 @@ on property:persist.thermal.monitor=true
 
 on property:persist.timed.enable=true
     start time_daemon
-
-on property:ro.hdmi.enable=true
-    start hdmid
 
 on property:ro.qualcomm.cabl=1
     start abld

@@ -203,10 +203,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-service hdmid /system/bin/hdmid
-    socket hdmid stream 0660 root system graphics
-    disabled
-
 service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
@@ -288,9 +284,6 @@ on property:persist.thermal.monitor=true
 
 on property:persist.timed.enable=true
     start time_daemon
-
-on property:ro.hdmi.enable=true
-    start hdmid
 
 on property:ro.qualcomm.cabl=1
     start abld

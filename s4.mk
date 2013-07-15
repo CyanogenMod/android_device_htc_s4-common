@@ -37,10 +37,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.sdio.sh:/system/etc/init.qcom.sdio.sh \
     $(LOCAL_PATH)/configs/init.qcom.wifi.sh:/system/etc/init.qcom.wifi.sh
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    hci_qcomm_init
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8960

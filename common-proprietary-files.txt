@@ -77,6 +77,10 @@ lib/libmm-color-convertor.so
 lib/libnetmgr.so
 lib/libqc-opt.so
 
+# Widevine
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L1.so
+
 # WLAN
 etc/firmware/wlan/prima/WCNSS_cfg.dat
 etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini

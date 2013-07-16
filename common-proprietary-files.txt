@@ -79,7 +79,7 @@ lib/libqc-opt.so
 
 # Widevine
 vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libWVStreamControlAPI_L3.so
 
 # WLAN
 etc/firmware/wlan/prima/WCNSS_cfg.dat

@@ -194,7 +194,7 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin
+    group qcom_oncrpc bluetooth net_bt_admin system
     disabled
     oneshot
 
@@ -267,6 +267,12 @@ service zchgd_onmode /system/bin/zchgd -onmode
     user root
     group root graphics
     oneshot
+
+on property:bluetooth.hciattach=true
+    start hciattach
+
+on property:bluetooth.hciattach=false
+    setprop bluetooth.status off
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot

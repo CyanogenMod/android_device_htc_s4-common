@@ -182,6 +182,10 @@ on boot
 service abld /system/bin/mm-abl-daemon
     disabled
 
+service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
+    disabled
+    oneshot
+
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
     disabled
     oneshot
@@ -195,6 +199,10 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system
+    disabled
+    oneshot
+
+service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 

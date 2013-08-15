@@ -48,6 +48,7 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
+    lpm.rc \
     choice_fn \
     power_test \
     offmode_charging \

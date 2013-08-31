@@ -8,10 +8,8 @@ bin/hci_qcomm_init
 bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
-bin/netsharing
 bin/rmt_storage
 bin/thermald
-bin/zchgd
 
 # Audio
 lib/libacdbloader.so

@@ -1,7 +1,6 @@
 # Device-specific proprietary files sharing a common name
 
 # Executable files
-bin/akmd
 bin/qmuxd
 
 # QMI libraries

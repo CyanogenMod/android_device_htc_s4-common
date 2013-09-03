@@ -1,7 +1,7 @@
 # Device-specific proprietary files sharing a common name
 
 # Executable files
-bin/netmgr
+bin/netmgrd
 bin/qmuxd
 
 # QMI libraries

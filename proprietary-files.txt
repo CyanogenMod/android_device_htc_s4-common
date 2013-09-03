@@ -1,6 +1,7 @@
 # Device-specific proprietary files sharing a common name
 
 # Executable files
+bin/netmgr
 bin/qmuxd
 
 # QMI libraries
@@ -18,5 +19,6 @@ lib/libqmiservices.so
 lib/libqmi.so
 
 # Radio
+lib/libnetmgr.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so

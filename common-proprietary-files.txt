@@ -7,7 +7,6 @@ bin/charging
 bin/hci_qcomm_init
 bin/mm-qcamera-daemon
 bin/mpdecision
-bin/netmgrd
 bin/rmt_storage
 bin/thermald
 
@@ -74,7 +73,6 @@ etc/firmware/vidc_1080p.fw
 lib/libmm-color-convertor.so
 
 # Radio
-lib/libnetmgr.so
 lib/libqc-opt.so
 
 # Widevine

@@ -57,7 +57,7 @@ COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 BOARD_HAVE_NEW_QC_GPS := true
 
 # Graphics
-TARGET_DISPLAY_INSECURE_MM_HEAP : true
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/s4-common/recovery/graphics.c

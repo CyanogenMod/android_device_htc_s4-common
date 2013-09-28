@@ -219,6 +219,7 @@ case "$target" in
          chmod 664 /sys/module/msm_dcvs/cores/cpu0/slack_time_min_us
          chmod 664 /sys/module/msm_mpdecision/slack_time_max_us
          chmod 664 /sys/module/msm_mpdecision/slack_time_min_us
+         echo 1 > /dev/cpuctl/apps/cpu.notify_on_migrate
          soc_id=`cat /sys/devices/system/soc/soc0/id`
          case "$soc_id" in
              "130")

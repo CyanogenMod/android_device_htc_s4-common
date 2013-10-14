@@ -65,6 +65,7 @@ BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/s4-common/recovery/graphics.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+BOARD_RECOVERY_SWIPE := true
 
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode

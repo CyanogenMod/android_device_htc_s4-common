@@ -61,6 +61,9 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
 
+# Radio
+BOARD_RIL_NO_CELLINFOLIST := true
+
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"

@@ -3,6 +3,7 @@
 # Executable files
 bin/netmgrd
 bin/qmuxd
+bin/rmt_storage
 
 # QMI libraries
 lib/libdiag.so
@@ -19,6 +20,7 @@ lib/libqmiservices.so
 lib/libqmi.so
 
 # Radio
+lib/libqc-opt.so
 lib/libnetmgr.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so

@@ -3,6 +3,7 @@
 # Executable files
 bin/netmgrd
 bin/qmuxd
+bin/rmt_storage
 
 # QMI libraries
 lib/libdiag.so

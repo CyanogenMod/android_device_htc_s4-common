@@ -70,6 +70,7 @@ etc/firmware/leia_pm4_470.fw
 etc/firmware/vidc_1080p.fw
 
 # Media libraries
+lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 
 # Radio

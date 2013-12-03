@@ -76,7 +76,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.baseband.arch=msm \
     ro.opengles.version=131072 \
     ro.product.wireless=WCN3660 \
-    ro.qualcomm.bt.hci_transport=smd
+    ro.qualcomm.bt.hci_transport=smd \
+    ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/s4-common/s4-common-vendor.mk)

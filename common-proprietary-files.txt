@@ -73,8 +73,8 @@ etc/firmware/vidc_1080p.fw
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 
-# Radio
-lib/libqc-opt.so
+# Qualcomm extra
+vendor/lib/libqc-opt.so
 
 # Widevine
 vendor/lib/libwvm.so

@@ -1,4 +1,9 @@
 on boot
+    # USB
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    write /sys/class/android_usb/android0/idProduct 0ff9
+    write /sys/class/android_usb/android0/f_mass_storage/inquiry_string "HTC Phone                0000"
+    # Performance
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
     write /sys/module/rpm_resources/enable_low_power/vdd_dig 1

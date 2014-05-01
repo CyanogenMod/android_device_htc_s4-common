@@ -23,12 +23,6 @@ on fs
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
 
-    # link firmware
-    exec /system/bin/sh /system/etc/init.qcom.radio_links.sh
-    exec /system/bin/sh /system/etc/init.qcom.q6_links.sh
-
-    mount_all /remount.qcom
-
 on post-fs-data
     # double check perms and set owner
     chown root root /devlog

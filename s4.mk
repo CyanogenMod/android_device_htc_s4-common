@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
     gps.msm8960
 
 # Recovery
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     lpm.rc \

@@ -104,6 +104,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+    params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
@@ -129,6 +130,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+    params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);

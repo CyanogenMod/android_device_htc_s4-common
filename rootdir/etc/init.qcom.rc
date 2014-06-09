@@ -31,8 +31,7 @@ on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
 
-    # prepare kernel for wifi module
-    setprop ro.product.wireless WCN3660
+    # initiate wcnss firmware download
     write /dev/wcnss_wlan 1
 
 on boot
@@ -174,16 +173,10 @@ on boot
     chown root system /sys/class/timed_output/vibrator/voltage_level
     chmod 0664 /sys/class/timed_output/vibrator/voltage_level
 
-    # load kineto_gan.ko
-    insmod /system/lib/modules/kineto_gan.ko
-
     # cyttsp update
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
 
 # Services start here
-
-service abld /system/bin/mm-abl-daemon
-    disabled
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     disabled
@@ -222,11 +215,12 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     oneshot
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class core
     user root
     disabled
 
 service netmgrd /system/bin/netmgrd
-    class main
+    class core
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -241,28 +235,24 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
-    class main
+    class late_start
     user system
     group system camera inet
 
-service qcom-sh /system/bin/sh /init.qcom.sh
-    class main
-    user root
-    oneshot
-
 service qmuxd /system/bin/qmuxd
-    class main
+    class core
     user radio
-    group radio qcom_diag
+    group radio audio gps
 
 service rmt_storage /system/bin/rmt_storage modem_st1 modem_st2 recovery radio_config
     class core
     user root
 
 service thermald /system/bin/thermald
-    class main
+    class core
     user root
     group root
+    disabled
 
 service time_daemon /system/bin/time_daemon
     user root
@@ -278,16 +268,6 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
-    oneshot
-
-service zchgd_offmode /system/bin/zchgd -pseudooffmode
-    user root
-    group root graphics
-    disabled
-
-service zchgd_onmode /system/bin/zchgd -onmode
-    user root
-    group root graphics
     oneshot
 
 on property:bluetooth.hciattach=true
@@ -307,12 +287,6 @@ on property:persist.thermal.monitor=true
 
 on property:persist.timed.enable=true
     start time_daemon
-
-on property:ro.qualcomm.cabl=1
-    start abld
-
-on property:ro.qualcomm.cabl=0
-    stop abld
 
 on property:ro.use_data_netmgrd=false
     stop netmgrd
@@ -432,7 +406,6 @@ on property:sys.boot_completed=1
     write /sys/keyboard/vol_wakeup 1
     # Set performance profile
     setprop sys.perf.profile 1
-    start thermald
 
 # CM Performance Profiles
 

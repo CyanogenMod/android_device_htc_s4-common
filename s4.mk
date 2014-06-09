@@ -22,7 +22,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Boot ramdisk setup
 PRODUCT_PACKAGES += \
-    init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.rc \
     ueventd.qcom.rc
@@ -30,9 +29,7 @@ PRODUCT_PACKAGES += \
 # Qualcomm scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
-    $(LOCAL_PATH)/configs/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh \
-    $(LOCAL_PATH)/configs/init.qcom.sdio.sh:/system/etc/init.qcom.sdio.sh \
-    $(LOCAL_PATH)/configs/init.qcom.wifi.sh:/system/etc/init.qcom.wifi.sh
+    $(LOCAL_PATH)/configs/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh
 
 # Camera
 PRODUCT_PACKAGES += \

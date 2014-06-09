@@ -21,7 +21,7 @@
 /dev/pmem_audio           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/oncrpc/*             0660   radio      system
-/dev/radio0               0644   fm_radio   fm_radio
+/dev/radio0               0644   audio      audio
 /dev/i2c-0                0664   root       system
 /dev/i2c-1                0664   root       system
 /dev/i2c-2                0664   root       system
@@ -126,8 +126,8 @@
 /dev/smd9                                      0600    system  system
 
 # for autobot car pc
-/dev/ttyHSUSB3                                 0660    autobot_access autobot_access
 /dev/ttyHSUSB1                                 0600    system system
+/dev/ttyHSUSB3                                 0600    system system
 
 # NFC
 /dev/pn544                0600   nfc        nfc

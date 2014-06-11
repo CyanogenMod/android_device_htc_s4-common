@@ -57,9 +57,6 @@ on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
 
-    # initiate wcnss firmware download
-    write /dev/wcnss_wlan 1
-
 on boot
     # mount debugfs for systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
@@ -257,6 +254,12 @@ service time_daemon /system/bin/time_daemon
     group root
     oneshot
     disabled
+
+service wcnss-service /system/bin/wcnss_service
+    class main
+    user system
+    group system wifi
+    oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \

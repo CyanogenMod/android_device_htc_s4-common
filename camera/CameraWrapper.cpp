@@ -107,6 +107,13 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
+#ifdef CAMERA_FRONT_VGA
+    if (id == CAMERA_FACING_FRONT) {
+        params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
+                "640x480,640x384,640x368,576x432,480x320,384x288,352x288,320x240,240x160,176x144");
+    }
+#endif
+
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();

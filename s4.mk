@@ -69,7 +69,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    wcnss_service
+    wcnss_service \
+    mac-update
 
 # Permissions
 PRODUCT_COPY_FILES += \

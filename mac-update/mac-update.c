@@ -1,4 +1,19 @@
-/* To FreeXperia from a friend :) */
+/*
+ * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2014 FreeXperia
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,8 +30,8 @@ int read_mac(const char *filename, char *buf)
 	FILE *f = fopen(filename, "r");
 	if (!f)
 		return -ENOENT;
-	ret = fscanf(f, "%hhx:%hhx:%hhx:%hhx:%hhx:%hhx", &buf[0], &buf[1],
-		     &buf[2], &buf[3], &buf[4], &buf[5]);
+	ret = fscanf(f, "macaddr=%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx",
+				 &buf[0], &buf[1], &buf[2], &buf[3], &buf[4], &buf[5]);
 	fclose(f);
 	if (ret != 6) {
 		return -EINVAL;
@@ -72,10 +87,10 @@ int main(int argc, char **argv)
 	}
 	fclose(f);
 
-	UPD_MAC(MAC0_FILE, MAC0_OFFSET);
-	UPD_MAC(MAC1_FILE, MAC1_OFFSET);
-	UPD_MAC(MAC2_FILE, MAC2_OFFSET);
-	UPD_MAC(MAC3_FILE, MAC3_OFFSET);
+	UPD_MAC(CALIBRATION_PATH, MAC0_OFFSET);
+	UPD_MAC(CALIBRATION_PATH, MAC1_OFFSET);
+	UPD_MAC(CALIBRATION_PATH, MAC2_OFFSET);
+	UPD_MAC(CALIBRATION_PATH, MAC3_OFFSET);
 
 	f = fopen(NV_OUT, "w+");
 	if (!f) {

@@ -46,7 +46,9 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/hostapd 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/wifi/prima 0775 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp system
+    exec /system/bin/mac-update
 
     # audio
     mkdir /data/audio 0775 media audio
@@ -259,6 +261,11 @@ service wcnss-service /system/bin/wcnss_service
     class main
     user system
     group system wifi
+    oneshot
+
+service mac-update /system/bin/mac-update
+    class main
+    user wifi
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \

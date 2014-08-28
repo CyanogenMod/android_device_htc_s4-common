@@ -20,10 +20,12 @@ TARGET_DIR = os.getenv('OUT')
 
 def FullOTA_Assertions(info):
   AddBootloaderAssertion(info, info.input_zip)
+  AddBasebandAssertion(info, info.input_zip)
 
 
 def IncrementalOTA_Assertions(info):
   AddBootloaderAssertion(info, info.target_zip)
+  AddBasebandAssertion(info, info.target_zip)
 
 
 def AddBootloaderAssertion(info, input_zip):
@@ -35,3 +37,12 @@ def AddBootloaderAssertion(info, input_zip):
       info.script.AssertSomeBootloader(*bootloaders)
     info.metadata["pre-bootloader"] = m.group(1)
 
+
+def AddBasebandAssertion(info, input_zip):
+  android_info = input_zip.read("OTA/android-info.txt")
+  m = re.search(r"require\s+version-baseband\s*=\s*(\S+)", android_info)
+  if m:
+    basebands = m.group(1).split("|")
+    if "*" not in basebands:
+      info.script.AssertSomeBaseband(*basebands)
+    info.metadata["pre-baseband"] = m.group(1)

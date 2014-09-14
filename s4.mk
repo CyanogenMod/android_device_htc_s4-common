@@ -44,11 +44,11 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     lpm.rc \
+    charger \
+    charger_res_images \
     choice_fn \
-    power_test \
     offmode_charging \
-    chargeled \
-    detect_key
+    chargeled
 
 # Audio config
 PRODUCT_COPY_FILES += \

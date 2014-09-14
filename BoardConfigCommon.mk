@@ -78,6 +78,13 @@ BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
 
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+BOARD_ALLOW_SUSPEND_IN_CHARGER := true
+ifneq ($(filter fireball ville,$(TARGET_DEVICE)),)
+BOARD_CHARGER_RES := device/htc/s4-common/recovery/res/images/charger-540
+else
+BOARD_CHARGER_RES := device/htc/s4-common/recovery/res/images/charger-720
+endif
+
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

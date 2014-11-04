@@ -75,6 +75,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/htc/s4-common/recovery/source/recovery_keys.c
 BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
+TARGET_RECOVERY_DEVICE_DIRS += device/htc/s4-common
 
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode

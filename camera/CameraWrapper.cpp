@@ -107,6 +107,9 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
+    /* Disable denoise */
+    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
+
 #ifdef CAMERA_FRONT_VGA
     if (id == CAMERA_FACING_FRONT) {
         params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
@@ -139,6 +142,9 @@ static char *camera_fixup_setparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
+
+    /* Disable denoise */
+    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);

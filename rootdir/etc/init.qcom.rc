@@ -1,5 +1,6 @@
 # Common HTC 8960 init script
 
+import init.target.rc
 import init.qcom.usb.rc
 
 on early-init

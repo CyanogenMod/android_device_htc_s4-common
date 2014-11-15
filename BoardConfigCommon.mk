@@ -65,6 +65,9 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
 
+# Misc
+BOARD_USES_LEGACY_MMAP := true
+
 # Radio
 BOARD_RIL_CLASS := ../../../device/htc/s4-common/ril
 BOARD_RIL_NO_CELLINFOLIST := true

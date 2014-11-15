@@ -66,6 +66,7 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
 
 # Radio
+BOARD_RIL_CLASS := ../../../device/htc/s4-common/ril
 BOARD_RIL_NO_CELLINFOLIST := true
 
 # Recovery

@@ -27,11 +27,9 @@
 # Inherit from common msm8960
 -include device/htc/msm8960-common/BoardConfigCommon.mk
 
-# Release tools
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/s4-common
+LOCAL_PATH := device/htc/s4-common
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH := device/htc/s4-common/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80400000
@@ -51,36 +49,34 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
-COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# GPS
-BOARD_HAVE_NEW_QC_GPS := true
+# Charger
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+
+# CMHW
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # Graphics
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
-# Hardware tunables
-BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
-
 # Radio
-BOARD_USES_LEGACY_MMAP := true
-BOARD_RIL_CLASS := ../../../device/htc/s4-common/ril
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 BOARD_RIL_NO_CELLINFOLIST := true
+BOARD_USES_LEGACY_MMAP := true
 
 # Recovery
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(LOCAL_PATH)/recovery/source/recovery_keys.c
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
 BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_DEVICE_DIRS += $(LOCAL_PATH)
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/htc/s4-common/recovery/source/recovery_keys.c
-BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
-TARGET_RECOVERY_DEVICE_DIRS += device/htc/s4-common
 
-# Charge mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

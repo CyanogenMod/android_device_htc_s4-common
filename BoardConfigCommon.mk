@@ -69,6 +69,9 @@ BOARD_HARDWARE_CLASS := device/htc/s4-common/cmhw
 BOARD_RIL_NO_CELLINFOLIST := true
 BOARD_RIL_CLASS := ../../../device/htc/s4-common/ril
 
+# Misc
+BOARD_USES_LEGACY_MMAP := true
+
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true

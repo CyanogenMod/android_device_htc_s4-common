@@ -207,7 +207,7 @@ int  loc_eng_update_criteria(loc_eng_data_s_type &loc_eng_data,
 void loc_eng_agps_init(loc_eng_data_s_type &loc_eng_data,
                        AGpsCallbacks* callbacks);
 int  loc_eng_agps_open(loc_eng_data_s_type &loc_eng_data, AGpsType agpsType,
-                      const char* apn, AGpsBearerType bearerType);
+                      const char* apn, ApnIpType bearerType);
 int  loc_eng_agps_closed(loc_eng_data_s_type &loc_eng_data, AGpsType agpsType);
 int  loc_eng_agps_open_failed(loc_eng_data_s_type &loc_eng_data, AGpsType agpsType);
 int  loc_eng_set_server_proxy(loc_eng_data_s_type &loc_eng_data,

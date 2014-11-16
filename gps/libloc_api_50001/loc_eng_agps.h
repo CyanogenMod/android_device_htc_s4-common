@@ -151,7 +151,7 @@ class AgpsStateMachine {
     // for convenience, we don't do strlen each time.
     unsigned int mAPNLen;
     // bear
-    AGpsBearerType mBearer;
+    ApnIpType mBearer;
     // ipv4 address for routing
     bool mEnforceSingleSubscriber;
 
@@ -162,8 +162,8 @@ public:
     // self explanatory methods below
     void setAPN(const char* apn, unsigned int len);
     inline const char* getAPN() const { return (const char*)mAPN; }
-    inline void setBearer(AGpsBearerType bearer) { mBearer = bearer; }
-    inline AGpsBearerType getBearer() const { return mBearer; }
+    inline void setBearer(ApnIpType bearer) { mBearer = bearer; }
+    inline ApnIpType getBearer() const { return mBearer; }
     inline AGpsType getType() const { return (AGpsType)mType; }
 
     // someone, a ATL client or BIT, is asking for NIF
@@ -203,7 +203,7 @@ struct Subscriber {
         ID(id), mStateMachine(stateMachine) {}
     inline virtual ~Subscriber() {}
 
-    virtual void setIPAddresses(int &v4, char* v6) = 0;
+    virtual void setIPAddresses(uint32_t &v4, char* v6) = 0;
     inline virtual void setWifiInfo(char* ssid, char* password) {}
 
     inline virtual bool equals(const Subscriber *s) const
@@ -238,7 +238,7 @@ struct BITSubscriber : public Subscriber {
 
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(int &v4, char* v6)
+    inline virtual void setIPAddresses(uint32_t &v4, char* v6)
     { v4 = ID; memcpy(v6, ipv6Addr, sizeof(ipv6Addr)); }
 
     virtual Subscriber* clone()
@@ -264,7 +264,7 @@ struct ATLSubscriber : public Subscriber {
         mBackwardCompatibleMode(compatibleMode){}
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(int &v4, char* v6)
+    inline virtual void setIPAddresses(uint32_t &v4, char* v6)
     { v4 = INADDR_NONE; v6[0] = 0; }
 
     inline virtual Subscriber* clone()
@@ -296,7 +296,7 @@ struct WIFISubscriber : public Subscriber {
 
     virtual bool notifyRsrcStatus(Notification &notification);
 
-    inline virtual void setIPAddresses(int &v4, char* v6) {}
+    inline virtual void setIPAddresses(uint32_t &v4, char* v6) {}
 
     inline virtual void setWifiInfo(char* ssid, char* password)
     {

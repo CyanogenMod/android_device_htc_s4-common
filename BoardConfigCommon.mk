@@ -88,8 +88,24 @@ BOARD_SEPOLICY_DIRS += \
     device/htc/s4-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+    device.te \
+    file.te \
+    file_contexts \
+    mediaserver.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    netmgrd.te \
+    qmuxd.te \
     property_contexts \
-    recovery.te
+    recovery.te \
+    rmt_storage.te \
+    sensors.te \
+    surfaceflinger.te \
+    system_server.te \
+    thermal-engine.te \
+    ueventd.te \
+    vold.te \
+    wpa.te
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

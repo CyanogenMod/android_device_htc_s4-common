@@ -168,6 +168,7 @@ on boot
     # Vibrator permissions
     chown root system /sys/class/timed_output/vibrator/voltage_level
     chmod 0664 /sys/class/timed_output/vibrator/voltage_level
+    restorecon /sys/class/timed_output/vibrator/voltage_level
 
     # cyttsp update
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1

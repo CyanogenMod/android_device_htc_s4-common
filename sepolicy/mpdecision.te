@@ -1,0 +1,6 @@
+allow mpdecision socket_device:dir { w_file_perms add_name };
+allow mpdecision mpctl_socket:sock_file { create_file_perms unlink create setattr };
+allow mpdecision socket_device:sock_file { create_file_perms unlink create setattr };
+allow mpdecision system_data_file:dir rw_dir_perms;
+allow mpdecision system_data_file:file { create_file_perms };
+allow mpdecision mpctl_data_file:file rw_file_perms;

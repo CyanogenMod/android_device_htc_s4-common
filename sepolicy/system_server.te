@@ -1,0 +1,2 @@
+allow system_server timerirq_device:chr_file { open read write ioctl };
+allow system_server wifi_data_file:lnk_file { read write };

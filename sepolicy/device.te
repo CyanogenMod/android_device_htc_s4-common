@@ -1,0 +1,2 @@
+type rfkill_device, dev_type;
+type timerirq_device, dev_type;

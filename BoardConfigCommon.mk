@@ -87,10 +87,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 BOARD_SEPOLICY_DIRS += \
     device/htc/s4-common/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    property_contexts \
-    recovery.te
-
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn

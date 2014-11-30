@@ -81,6 +81,27 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 # Release tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += device/htc/s4-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+	device.te \
+	file.te \
+	file_contexts \
+	mediaserver.te \
+	mm-qcamerad.te \
+	mpdecision.te \
+	netmgrd.te \
+	qmuxd.te \
+	rmt_storage.te \
+	surfaceflinger.te \
+	system_server.te \
+	thermal-engine.te \
+	ueventd.te \
+	vold.te \
+	wpa.te
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn

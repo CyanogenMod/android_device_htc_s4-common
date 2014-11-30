@@ -1,0 +1,4 @@
+allow mediaserver mediaserver:netlink_kobject_uevent_socket create_socket_perms;
+allow mediaserver shell_data_file:dir rw_dir_perms;
+allow mediaserver system_data_file:sock_file rw_file_perms;
+allow mediaserver system_server:unix_stream_socket rw_socket_perms;

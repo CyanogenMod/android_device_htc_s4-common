@@ -1,0 +1,1 @@
+allow netmgrd netmgrd:packet_socket rw_socket_perms;

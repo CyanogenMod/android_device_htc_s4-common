@@ -56,6 +56,21 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
         super(context, networkMode, cdmaSubscription, instanceId);
     }
 
+    private static String
+    responseToStringHTC(int request) {
+        switch(request) {
+            case RIL_UNSOL_ENTER_LPM: return "UNSOL_ENTER_LPM";
+            case RIL_UNSOL_CDMA_3G_INDICATOR: return "UNSOL_CDMA_3G_INDICATOR";
+            case RIL_UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR: return "UNSOL_CDMA_ENHANCE_ROAMING_INDICATOR";
+            case RIL_UNSOL_CDMA_NETWORK_BASE_PLUSCODE_DIAL: return "UNSOL_CDMA_NETWORK_BASE_PLUSCODE_DIAL";
+            case RIL_UNSOL_RESPONSE_PHONE_MODE_CHANGE: return "UNSOL_RESPONSE_PHONE_MODE_CHANGE";
+            case RIL_UNSOL_RESPONSE_VOICE_RADIO_TECH_CHANGED: return "UNSOL_RESPONSE_VOICE_RADIO_TECH_CHANGED";
+            case RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED: return "UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED";
+            case RIL_UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED: return "UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED";
+            default: return "<unknown response>";
+        }
+    }
+
     @Override
     protected Object
     responseIccCardStatus(Parcel p) {
@@ -163,7 +178,10 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
             case RIL_UNSOL_RESPONSE_VOICE_RADIO_TECH_CHANGED:
             case RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED:
             case RIL_UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED:
-                if (RILJ_LOGD) unsljLogRet(response, ret);
+                if (RILJ_LOGD) {
+                    riljLog("[UNSL]< " + responseToStringHTC(response) + " "
+                            + retToString(response, ret));
+                }
 
                 if (mExitEmergencyCallbackModeRegistrants != null) {
                     mExitEmergencyCallbackModeRegistrants.notifyRegistrants(

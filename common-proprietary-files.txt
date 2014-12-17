@@ -79,8 +79,12 @@ lib/libmm-color-convertor.so
 vendor/lib/libqc-opt.so
 
 # Widevine
+lib/libdrmdecrypt.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/libWVStreamControlAPI_L1.so
 
 # WLAN
 etc/firmware/wlan/prima/WCNSS_cfg.dat

@@ -1,0 +1,6 @@
+type ewtzmud, domain;
+type ewtzmud_exec, exec_type, file_type;
+init_daemon_domain(ewtzmud)
+
+allow ewtzmud self:process execmem;
+allow ewtzmud sensors_device:chr_file { open read write ioctl };

@@ -37,7 +37,7 @@
 /dev/ewtzmu2.*                                  u:object_r:sensors_device:s0
 /dev/lightsensor                                u:object_r:sensors_device:s0
 /system/bin/akmd                                u:object_r:akmd_exec:s0
-/system/bin/ewtzmud                             u:object_r:sensors_exec:s0
+/system/bin/ewtzmud                             u:object_r:ewtzmud_exec:s0
 
 # Timer
 /dev/timerirq                                   u:object_r:timerirq_device:s0

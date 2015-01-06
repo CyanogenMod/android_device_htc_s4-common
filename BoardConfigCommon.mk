@@ -88,7 +88,8 @@ BOARD_SEPOLICY_DIRS += \
     device/htc/s4-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    akmd.te
+    akmd.te \
+    ewtzmud.te
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

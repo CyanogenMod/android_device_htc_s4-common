@@ -29,10 +29,14 @@
 /dev/socket/mpctl                               u:object_r:mpctl_socket:s0
 
 # Sensors
+/data/misc/AK8975Prms.ini                       u:object_r:sensors_data_file:s0
+/data/misc/AccPrmsF.ini                         u:object_r:sensors_data_file:s0
 /dev/akm8975.*                                  u:object_r:sensors_device:s0
+/dev/bma150                                     u:object_r:sensors_device:s0
 /dev/cm3602                                     u:object_r:sensors_device:s0
 /dev/ewtzmu2.*                                  u:object_r:sensors_device:s0
 /dev/lightsensor                                u:object_r:sensors_device:s0
+/system/bin/akmd                                u:object_r:akmd_exec:s0
 /system/bin/ewtzmud                             u:object_r:sensors_exec:s0
 
 # Timer

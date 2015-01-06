@@ -175,6 +175,11 @@ on boot
 
 # Services start here
 
+service akmd /system/bin/akmd
+    class main
+    user compass
+    group compass misc input
+
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     disabled
     oneshot

@@ -66,6 +66,7 @@ TARGET_NO_ADAPTIVE_PLAYBACK := true
 
 # Radio
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+BOARD_RIL_NO_CELLINFOLIST := true
 BOARD_USES_LEGACY_MMAP := true
 
 # Recovery

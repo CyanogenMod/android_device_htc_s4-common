@@ -24,6 +24,8 @@ on fs
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
 
+    swapon_all /fstab.qcom
+
 on post-fs-data
     # double check perms and set owner
     chown root root /devlog

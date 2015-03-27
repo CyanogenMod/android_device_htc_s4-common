@@ -47,7 +47,6 @@ on enable-low-power
     write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 1242000
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
 
-    write /sys/module/cpu_boost/parameters/boost_ms 20
     write /sys/module/cpu_boost/parameters/sync_threshold 1242000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
     write /sys/module/cpu_boost/parameters/input_boost_ms 40

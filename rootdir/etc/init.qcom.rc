@@ -168,6 +168,7 @@ service akmd /system/bin/akmd
     class main
     user compass
     group compass misc input
+    seclabel u:r:akmd:s0
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     disabled

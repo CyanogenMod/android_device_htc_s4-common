@@ -181,9 +181,10 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABDKL
     disabled
     oneshot
 
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+service fm_dl /system/bin/setprop hw.fm.init 1
+    class late_start
     user root
-    group system qcom_oncrpc
+    group system fm_radio
     disabled
     oneshot
 

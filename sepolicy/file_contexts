@@ -11,6 +11,9 @@
 # CMHW
 /sys/devices/virtual/timed_output/vibrator/voltage_level    u:object_r:vibeamp_sysfs:s0
 
+# Filesystem
+/system/bin/setup_fs                            u:object_r:setup_fs_exec:s0
+
 # Graphics
 /dev/kgsl-2d.*                                  u:object_r:gpu_device:s0
 

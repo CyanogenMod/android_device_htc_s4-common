@@ -212,9 +212,9 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     oneshot
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-    class core
+    class late_start
     user root
-    disabled
+    group system
 
 service netmgrd /system/bin/netmgrd
     class core

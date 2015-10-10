@@ -24,6 +24,7 @@
 #define CALIBRATION_PATH "/proc/calibration"
 
 #include <cutils/log.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

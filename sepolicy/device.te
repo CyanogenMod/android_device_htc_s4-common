@@ -1,1 +1,1 @@
-type rfkill_device, dev_type;
+type bluetooth_device, dev_type;

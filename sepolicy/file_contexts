@@ -1,6 +1,7 @@
 
 # Bluetooth
-/dev/rfkill                                     u:object_r:rfkill_device:s0
+/dev/btlock                                     u:object_r:bluetooth_device:s0
+/dev/rfkill                                     u:object_r:bluetooth_device:s0
 
 # Camera
 /data/cam_socket.*                              u:object_r:camera_socket:s0
@@ -12,7 +13,7 @@
 /sys/devices/virtual/timed_output/vibrator/voltage_level    u:object_r:vibeamp_sysfs:s0
 
 # Graphics
-/dev/kgsl-2d.*                                  u:object_r:gpu_device:s0
+/dev/kgsl-2d.*                  u:object_r:gpu_device:s0
 
 # Lights
 /sys/devices/i2c-12/12-0033/leds/flashlight/function_switch             u:object_r:lights_sysfs:s0
@@ -23,21 +24,19 @@
 /dev/block/mmcblk0p22                           u:object_r:modem_efs_partition_device:s0
 /dev/block/mmcblk0p24                           u:object_r:modem_efs_partition_device:s0
 /dev/block/mmcblk0p25                           u:object_r:modem_efs_partition_device:s0
+/dev/ttyUSB0                                    u:object_r:radio_device:s0
 
 # Mpdecision
 /data/system/default_values                     u:object_r:mpctl_data_file:s0
 /dev/socket/mpctl                               u:object_r:mpctl_socket:s0
 
 # Sensors
-/data/misc/AK8975Prms.ini                       u:object_r:sensors_data_file:s0
-/data/misc/AccPrmsF.ini                         u:object_r:sensors_data_file:s0
-/dev/akm8975.*                                  u:object_r:sensors_device:s0
+/data/misc/akmd_set.txt                         u:object_r:sensors_data_file:s0
+/dev/akm8963                                    u:object_r:sensors_device:s0
+/dev/akm8963_dev                                u:object_r:sensors_device:s0
 /dev/bma150                                     u:object_r:sensors_device:s0
 /dev/cm3602                                     u:object_r:sensors_device:s0
 /dev/ewtzmu2.*                                  u:object_r:sensors_device:s0
 /dev/lightsensor                                u:object_r:sensors_device:s0
 /system/bin/akmd                                u:object_r:akmd_exec:s0
 /system/bin/ewtzmud                             u:object_r:ewtzmud_exec:s0
-
-# Timer
-/dev/timerirq                                   u:object_r:timerirq_device:s0

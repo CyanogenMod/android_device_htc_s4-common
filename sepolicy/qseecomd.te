@@ -1,0 +1,1 @@
+allow tee system_file:file execmod; # for libdrmfs

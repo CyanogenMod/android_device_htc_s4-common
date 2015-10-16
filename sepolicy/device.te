@@ -1,2 +1,2 @@
-type rfkill_device, dev_type;
-type timerirq_device, dev_type;
+type bluetooth_device, dev_type;
+type cir_device, dev_type;

@@ -8,6 +8,9 @@ on early-init
     mkdir /mnt/usbdisk 0755 system system
 
 on init
+    # Boringssl-compat
+    export LD_PRELOAD "/system/lib/libboringssl-compat.so"
+
     mkdir /devlog 0700 root root
 
 on fs

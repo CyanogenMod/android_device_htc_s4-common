@@ -1,5 +1,9 @@
 [
   {
+    "repository": "android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat"
+  },
+  {
     "repository": "android_device_htc_msm8960-common",
     "target_path": "device/htc/msm8960-common"
   },

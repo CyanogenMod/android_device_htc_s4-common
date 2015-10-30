@@ -17,3 +17,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
+
+# Wifi AP
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.disableWifiApFirmwareReload=true
+

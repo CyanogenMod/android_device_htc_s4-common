@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_log
+    libshim_log \
+    libshim_qcopt
 
 # Ramdisk
 PRODUCT_PACKAGES += \

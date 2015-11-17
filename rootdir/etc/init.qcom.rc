@@ -9,7 +9,7 @@ on early-init
 
 on init
     # Shims
-    export LD_SHIM_LIBS "/system/lib/liblog.so|libshim_log.so:/system/vendor/lib/libqc-opt.so|libshim_qcopt.so"
+    export LD_SHIM_LIBS "/system/lib/liblog.so|libshim_log.so:/system/vendor/lib/libqc-opt.so|libshim_qcopt.so:/system/lib/hw/camera.vendor.msm8960.so|libshim_camera.so"
 
     mkdir /devlog 0700 root root
 

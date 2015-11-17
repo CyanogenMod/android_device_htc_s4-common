@@ -38,6 +38,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
+    libshim_camera \
     libshim_log \
     libshim_qcopt.so
 

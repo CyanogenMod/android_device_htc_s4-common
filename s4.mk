@@ -58,7 +58,8 @@ COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_log
+    libshim_log \
+    libshim_qcopt
 
 # Stlport
 PRODUCT_PACKAGES += \

@@ -8,6 +8,9 @@ on early-init
     mkdir /mnt/usbdisk 0755 system system
 
 on init
+    # Shims
+    export LD_SHIM_LIBS "/system/lib/liblog.so|libshim_log.so"
+
     mkdir /devlog 0700 root root
 
 on fs

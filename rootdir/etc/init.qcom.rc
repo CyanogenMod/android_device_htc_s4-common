@@ -11,6 +11,9 @@ on init
     # Preload
     export LD_PRELOAD "/system/lib/libboringssl-compat.so"
 
+    # Shims
+    export LD_SHIM_LIBS "/system/lib/liblog.so|libshim_log.so"
+
     mkdir /devlog 0700 root root
 
 on fs

@@ -36,6 +36,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.msm8960
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_log
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.power.rc \

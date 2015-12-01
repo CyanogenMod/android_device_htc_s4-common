@@ -56,6 +56,10 @@ PRODUCT_COPY_FILES += \
 # Recovery
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_log
+
 # Stlport
 PRODUCT_PACKAGES += \
     libstlport

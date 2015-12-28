@@ -40,7 +40,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     libshim_log \
-    libshim_qcopt.so
+    libshim_qcopt.so \
+    libshim_sensors
 
 # Ramdisk
 PRODUCT_PACKAGES += \

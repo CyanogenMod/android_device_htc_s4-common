@@ -47,7 +47,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     libshim_log \
-    libshim_qcopt
+    libshim_qcopt \
+    libshim_sensors
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh

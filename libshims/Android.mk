@@ -47,3 +47,18 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+
+# sensors
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+     MemoryBase.c \
+     VectorImpl.c
+
+LOCAL_SHARED_LIBRARIES := libbinder libhardware liblog
+LOCAL_MODULE := libshim_sensors
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)

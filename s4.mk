@@ -37,6 +37,13 @@ PRODUCT_PACKAGES += \
     camera.msm8960 \
     Snap
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8960
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.power.rc \
@@ -46,13 +53,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8960
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
 
 # Recovery
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD

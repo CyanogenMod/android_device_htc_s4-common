@@ -1,0 +1,41 @@
+#============= init ==============
+# src="init" tgt="debugfs" class="dir", perms="mounton"
+# comm="init" exe="" path=""
+allow init debugfs:dir mounton;
+# src="init" tgt="vibeamp_sysfs" class="file", perms="getattr"
+# comm="init" exe="" path=""
+allow init vibeamp_sysfs:file getattr;
+
+#============= kernel ==============
+# src="kernel" tgt="device" class="dir", perms="{ write add_name }"
+# comm="kworker/0:1" exe="" path=""
+allow kernel device:dir { write add_name };
+# src="kernel" tgt="device" class="file", perms="{ write create open }"
+# comm="kworker/0:1" exe="" path=""
+allow kernel device:file { write create open };
+
+#============= mediaserver ==============
+# src="mediaserver" tgt="system_file" class="file", perms="execmod"
+# comm="mediaserver" exe="" path=""
+allow mediaserver system_file:file execmod;
+
+#============= mm-qcamerad ==============
+# src="mm-qcamerad" tgt="system_data_file" class="dir", perms="{ write remove_name add_name }"
+# comm="mm-qcamera-daem" exe="" path=""
+allow mm-qcamerad system_data_file:dir { write remove_name add_name };
+# src="mm-qcamerad" tgt="system_file" class="file", perms="execmod"
+# comm="mm-qcamera-daem" exe="" path=""
+allow mm-qcamerad system_file:file execmod;
+
+#============= system_server ==============
+# src="system_server" tgt="system_file" class="file", perms="execmod"
+# comm="system_server" exe="" path=""
+allow system_server system_file:file execmod;
+
+#============= untrusted_app ==============
+# src="untrusted_app" tgt="mpdecision_exec" class="file", perms="execute"
+# comm="busybox" exe="" path=""
+allow untrusted_app mpdecision_exec:file execute;
+# src="untrusted_app" tgt="sysfs_lowmemorykiller" class="file", perms="{ read getattr open }"
+# comm="173796E635461736B20233" exe="" path=""
+allow untrusted_app sysfs_lowmemorykiller:file { read getattr open };

@@ -5,3 +5,4 @@ allow mediaserver mediaserver:netlink_kobject_uevent_socket create_socket_perms;
 
 # Unsure what mediaserver is reaching out to here
 allow mediaserver system_server:unix_stream_socket { read write };
+allow mediaserver system_file:file execmod; # /system/lib/libmmjpeg.so

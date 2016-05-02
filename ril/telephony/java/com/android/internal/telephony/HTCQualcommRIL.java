@@ -221,8 +221,37 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
     @Override
     protected void
     send(RILRequest rr) {
-        if (rr.mRequest >= 109) {
-            Rlog.v(RILJ_LOG_TAG, "HTCQualcommRIL: received unsupported request " + rr.mRequest);
+        boolean reqSupported = true;
+        if (rr.mRequest >= RIL_REQUEST_ALLOW_DATA) {
+            reqSupported = false;
+        } else {
+            switch(rr.mRequest) {
+                case RIL_REQUEST_VOICE_REGISTRATION_STATE:
+                case RIL_REQUEST_GSM_GET_BROADCAST_CONFIG:
+                case RIL_REQUEST_GSM_SET_BROADCAST_CONFIG:
+                case RIL_REQUEST_GSM_BROADCAST_ACTIVATION:
+                case RIL_REQUEST_CDMA_GET_BROADCAST_CONFIG:
+                case RIL_REQUEST_CDMA_SET_BROADCAST_CONFIG:
+                case RIL_REQUEST_CDMA_BROADCAST_ACTIVATION:
+                case RIL_REQUEST_GET_CELL_INFO_LIST:
+                case RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE:
+                case RIL_REQUEST_SET_INITIAL_ATTACH_APN:
+                case RIL_REQUEST_SIM_TRANSMIT_APDU_BASIC:
+                case RIL_REQUEST_SIM_TRANSMIT_APDU_CHANNEL:
+                case RIL_REQUEST_NV_READ_ITEM:
+                case RIL_REQUEST_NV_WRITE_ITEM:
+                case RIL_REQUEST_NV_WRITE_CDMA_PRL:
+                case RIL_REQUEST_NV_RESET_CONFIG:
+                    reqSupported = false;
+                    break;
+            }
+        }
+
+        if (!reqSupported) {
+            if (RILJ_LOGD) {
+                riljLog("HTCQualcommRIL: received unsupported request "
+                        + rr.mRequest);
+            }
             rr.onError(REQUEST_NOT_SUPPORTED, null);
             rr.release();
         } else {

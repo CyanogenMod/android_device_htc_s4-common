@@ -258,7 +258,7 @@ service time_daemon /system/bin/time_daemon
     disabled
 
 service wcnss-service /system/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi
     oneshot

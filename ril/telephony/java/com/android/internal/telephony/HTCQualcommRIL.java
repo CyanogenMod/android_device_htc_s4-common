@@ -217,4 +217,132 @@ public class HTCQualcommRIL extends RIL implements CommandsInterface {
             }
         }
     }
+
+    private boolean s4RequestSupported(int rilRequest) {
+        switch(rilRequest) {
+            case RIL_REQUEST_ACKNOWLEDGE_INCOMING_GSM_SMS_WITH_PDU:
+            case RIL_REQUEST_ANSWER:
+            case RIL_REQUEST_BASEBAND_VERSION:
+            case RIL_REQUEST_CANCEL_USSD:
+            case RIL_REQUEST_CDMA_BURST_DTMF:
+            case RIL_REQUEST_CDMA_DELETE_SMS_ON_RUIM:
+            case RIL_REQUEST_CDMA_FLASH:
+            case RIL_REQUEST_CDMA_GET_SUBSCRIPTION_SOURCE:
+            case RIL_REQUEST_CDMA_QUERY_PREFERRED_VOICE_PRIVACY_MODE:
+            case RIL_REQUEST_CDMA_QUERY_ROAMING_PREFERENCE:
+            case RIL_REQUEST_CDMA_SEND_SMS:
+            case RIL_REQUEST_CDMA_SET_PREFERRED_VOICE_PRIVACY_MODE:
+            case RIL_REQUEST_CDMA_SET_ROAMING_PREFERENCE:
+            case RIL_REQUEST_CDMA_SET_SUBSCRIPTION_SOURCE:
+            case RIL_REQUEST_CDMA_SMS_ACKNOWLEDGE:
+            case RIL_REQUEST_CDMA_SUBSCRIPTION:
+            case RIL_REQUEST_CDMA_VALIDATE_AND_WRITE_AKEY:
+            case RIL_REQUEST_CDMA_WRITE_SMS_TO_RUIM:
+            case RIL_REQUEST_CHANGE_BARRING_PASSWORD:
+            case RIL_REQUEST_CHANGE_SIM_PIN:
+            case RIL_REQUEST_CHANGE_SIM_PIN2:
+            case RIL_REQUEST_CONFERENCE:
+            case RIL_REQUEST_DATA_CALL_LIST:
+            case RIL_REQUEST_DATA_REGISTRATION_STATE:
+            case RIL_REQUEST_DEACTIVATE_DATA_CALL:
+            case RIL_REQUEST_DELETE_SMS_ON_SIM:
+            case RIL_REQUEST_DEVICE_IDENTITY:
+            case RIL_REQUEST_DIAL:
+            case RIL_REQUEST_DTMF:
+            case RIL_REQUEST_DTMF_START:
+            case RIL_REQUEST_DTMF_STOP:
+            case RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION:
+            case RIL_REQUEST_ENTER_SIM_PIN:
+            case RIL_REQUEST_ENTER_SIM_PIN2:
+            case RIL_REQUEST_ENTER_SIM_PUK:
+            case RIL_REQUEST_ENTER_SIM_PUK2:
+            case RIL_REQUEST_EXIT_EMERGENCY_CALLBACK_MODE:
+            case RIL_REQUEST_EXPLICIT_CALL_TRANSFER:
+            case RIL_REQUEST_GET_CLIR:
+            case RIL_REQUEST_GET_CURRENT_CALLS:
+            case RIL_REQUEST_GET_IMEI:
+            case RIL_REQUEST_GET_IMEISV:
+            case RIL_REQUEST_GET_IMSI:
+            case RIL_REQUEST_GET_MUTE:
+            case RIL_REQUEST_GET_NEIGHBORING_CELL_IDS:
+            case RIL_REQUEST_GET_PREFERRED_NETWORK_TYPE:
+            case RIL_REQUEST_GET_SIM_STATUS:
+            case RIL_REQUEST_GET_SMSC_ADDRESS:
+            case RIL_REQUEST_HANGUP:
+            case RIL_REQUEST_HANGUP_FOREGROUND_RESUME_BACKGROUND:
+            case RIL_REQUEST_HANGUP_WAITING_OR_BACKGROUND:
+            case RIL_REQUEST_IMS_REGISTRATION_STATE:
+            case RIL_REQUEST_IMS_SEND_SMS:
+            case RIL_REQUEST_ISIM_AUTHENTICATION:
+            case RIL_REQUEST_LAST_CALL_FAIL_CAUSE:
+            case RIL_REQUEST_LAST_DATA_CALL_FAIL_CAUSE:
+            case RIL_REQUEST_OEM_HOOK_RAW:
+            case RIL_REQUEST_OEM_HOOK_STRINGS:
+            case RIL_REQUEST_OPERATOR:
+            case RIL_REQUEST_QUERY_AVAILABLE_BAND_MODE:
+            case RIL_REQUEST_QUERY_AVAILABLE_NETWORKS:
+            case RIL_REQUEST_QUERY_CALL_FORWARD_STATUS:
+            case RIL_REQUEST_QUERY_CALL_WAITING:
+            case RIL_REQUEST_QUERY_CLIP:
+            case RIL_REQUEST_QUERY_FACILITY_LOCK:
+            case RIL_REQUEST_QUERY_NETWORK_SELECTION_MODE:
+            case RIL_REQUEST_QUERY_TTY_MODE:
+            case RIL_REQUEST_RADIO_POWER:
+            case RIL_REQUEST_REPORT_SMS_MEMORY_STATUS:
+            case RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING:
+            case RIL_REQUEST_RESET_RADIO:
+            case RIL_REQUEST_SCREEN_STATE:
+            case RIL_REQUEST_SEND_SMS:
+            case RIL_REQUEST_SEND_SMS_EXPECT_MORE:
+            case RIL_REQUEST_SEND_USSD:
+            case RIL_REQUEST_SEPARATE_CONNECTION:
+            case RIL_REQUEST_SET_BAND_MODE:
+            case RIL_REQUEST_SET_CALL_FORWARD:
+            case RIL_REQUEST_SET_CALL_WAITING:
+            case RIL_REQUEST_SET_CLIR:
+            case RIL_REQUEST_SET_FACILITY_LOCK:
+            case RIL_REQUEST_SET_LOCATION_UPDATES:
+            case RIL_REQUEST_SET_MUTE:
+            case RIL_REQUEST_SET_NETWORK_SELECTION_AUTOMATIC:
+            case RIL_REQUEST_SET_NETWORK_SELECTION_MANUAL:
+            case RIL_REQUEST_SET_PREFERRED_NETWORK_TYPE:
+            case RIL_REQUEST_SET_SMSC_ADDRESS:
+            case RIL_REQUEST_SET_SUPP_SVC_NOTIFICATION:
+            case RIL_REQUEST_SET_TTY_MODE:
+            case RIL_REQUEST_SET_UICC_SUBSCRIPTION:
+            case RIL_REQUEST_SETUP_DATA_CALL:
+            case RIL_REQUEST_SIGNAL_STRENGTH:
+            case RIL_REQUEST_SIM_CLOSE_CHANNEL:
+            case RIL_REQUEST_SIM_IO:
+            case RIL_REQUEST_SIM_OPEN_CHANNEL:
+            case RIL_REQUEST_SMS_ACKNOWLEDGE:
+            case RIL_REQUEST_STK_GET_PROFILE:
+            case RIL_REQUEST_STK_HANDLE_CALL_SETUP_REQUESTED_FROM_SIM:
+            case RIL_REQUEST_STK_SEND_ENVELOPE_COMMAND:
+            case RIL_REQUEST_STK_SEND_ENVELOPE_WITH_STATUS:
+            case RIL_REQUEST_STK_SEND_TERMINAL_RESPONSE:
+            case RIL_REQUEST_STK_SET_PROFILE:
+            case RIL_REQUEST_SWITCH_WAITING_OR_HOLDING_AND_ACTIVE:
+            case RIL_REQUEST_UDUB:
+            case RIL_REQUEST_VOICE_RADIO_TECH:
+            case RIL_REQUEST_WRITE_SMS_TO_SIM:
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    protected void
+    send(RILRequest rr) {
+        if (s4RequestSupported(rr.mRequest)) {
+            super.send(rr);
+        } else {
+            if (RILJ_LOGD) {
+                riljLog("HTCQualcommRIL: received unsupported request "
+                        + rr.mRequest);
+            }
+            rr.onError(REQUEST_NOT_SUPPORTED, null);
+            rr.release();
+        }
+    }
 }

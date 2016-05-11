@@ -1,1 +1,2 @@
+allow thermal-engine lights_sysfs:file rw_file_perms;
 allow thermal-engine self:capability { chown net_admin };

@@ -1,1 +1,2 @@
 allow surfaceflinger gpu_device:chr_file read;
+allow surfaceflinger shell_data_file:dir search;

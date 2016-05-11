@@ -1,5 +1,6 @@
 allow mediaserver self:netlink_kobject_uevent_socket create_socket_perms;
 allow mediaserver sensorservice_service:service_manager find;
+allow mediaserver shell_data_file:dir search;
 allow mediaserver system_file:file execmod; # for text relocations in libmmjpeg.so
 allow mediaserver system_server:unix_stream_socket rw_socket_perms;
 binder_call(mediaserver, system_server);

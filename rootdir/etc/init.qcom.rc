@@ -193,9 +193,15 @@ service fm_dl /system/bin/setprop hw.fm.init 1
     disabled
     oneshot
 
+service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
+    class core
+    user root
+    oneshot
+
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    class late_start
     user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin system
+    group qcom_oncrpc bluetooth net_bt_admin
     disabled
     oneshot
 
@@ -239,7 +245,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service qmuxd /system/bin/qmuxd
     class core
     user radio
-    group radio audio gps
+    group radio audio bluetooth gps
 
 service rmt_storage /system/bin/rmt_storage modem_st1 modem_st2 recovery radio_config
     class core

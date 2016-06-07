@@ -22,4 +22,7 @@
 
     <!-- Restart preview for front camera onPictureTaken -->
     <bool name="front_camera_restart_preview_onPictureTaken">true</bool>
+
+    <!-- Denoise -->
+    <string name="pref_camera_denoise_default" translatable="false">denoise-off</string>
 </resources>

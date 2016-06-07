@@ -113,7 +113,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
     /* Disable denoise */
-    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
+    params.remove(android::CameraParameters::KEY_SUPPORTED_DENOISE);
 
 #ifdef CAMERA_FRONT_VGA
     if (id == CAMERA_FACING_FRONT) {
@@ -149,7 +149,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
     /* Disable denoise */
-    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
+    params.remove(android::CameraParameters::KEY_SUPPORTED_DENOISE);
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);

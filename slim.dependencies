@@ -5,7 +5,7 @@
    "branch": "mm6.0"
  },
   {
-    "repository": "android_device_htc_msm8960-common",
+    "repository": "slim6_device_htc_msm8960-common",
     "target_path": "device/htc/msm8960-common"
   },
   {

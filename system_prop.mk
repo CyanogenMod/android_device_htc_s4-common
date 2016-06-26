@@ -1,12 +1,3 @@
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.fluence.mode=endfire \
-    persist.audio.handset.mic=digital \
-    persist.audio.speaker.location=high \
-    persist.audio.vr.enable=false \
-    qcom.hw.aac.encoder=true \
-    ro.qc.sdk.audio.fluencetype=fluence
-
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd

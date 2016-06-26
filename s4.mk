@@ -28,10 +28,6 @@ PRODUCT_COPY_FILES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-# Audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8960 \
